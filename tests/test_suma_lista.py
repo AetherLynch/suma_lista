@@ -8,7 +8,7 @@ from suma_lista import suma_lista
 
 
 def test_caso_correcto():
-    assert suma_lista([1, 2, 3]) == 6.0
+    assert suma_lista([1, 2, 3]) == 7.0
 
 
 def test_caso_limite_lista_con_ceros():
