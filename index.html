@@ -1,54 +1,56 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>suma_lista — CI/CD demo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>suma_lista - Railway</title>
     <style>
-      body{font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;max-width:900px;margin:40px auto;padding:0 16px;line-height:1.5}
-      .card{border:1px solid #ddd;border-radius:12px;padding:16px;margin:16px 0}
-      code,pre{background:#f6f8fa;border-radius:8px;padding:2px 6px}
-      pre{padding:12px;overflow:auto}
-      .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-      .muted{color:#666}
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #f7f7f7;
+        color: #222;
+      }
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        margin-bottom: 20px;
+      }
+      code {
+        background: #eee;
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+      .estado {
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
-    <h1>suma_lista — Evidencia de CD</h1>
-
     <div class="card">
-      <div class="row">
-        <strong>Estado del pipeline (CI):</strong>
-        <img
-          alt="CI status"
-          src="https://github.com/AetherLynch/suma_lista/actions/workflows/ci.yml/badge.svg"
-        />
-      </div>
-      <p class="muted">
-        Este badge se actualiza automáticamente según el último run del workflow <code>ci.yml</code>.
-      </p>
+      <h1>Proyecto suma_lista en Railway</h1>
+      <p>Esta página está desplegada en Railway.</p>
+      <p><span class="estado">Versión actual:</span> v1</p>
     </div>
 
     <div class="card">
-      <h2>Qué estoy demostrando</h2>
+      <h2>Prueba de la función</h2>
+      <p>Lista de ejemplo: <code>{{ lista }}</code></p>
+      <p>Resultado de suma_lista: <code>{{ resultado }}</code></p>
+    </div>
+
+    <div class="card">
+      <h2>Demostración CI/CD</h2>
+      <p>En esta actividad se demostrará:</p>
       <ol>
-        <li>Hacer fallar un test → Actions en rojo</li>
-        <li>Hacer un cambio en <code>index.html</code> → la página se actualiza (CD)</li>
-        <li>Arreglar el test → Actions en verde </li>
+        <li>Romper un test para poner el pipeline en rojo.</li>
+        <li>Modificar esta página y hacer push.</li>
+        <li>Corregir el test para volver el pipeline a verde.</li>
       </ol>
     </div>
-
-    <div class="card">
-      <h2>Comandos usados</h2>
-      <pre>py -m pytest
-git add .
-git commit -m "mensaje"
-git push</pre>
-      <p class="muted">Actualización HTML (CD) vía GitHub Pages.</p>
-    </div>
-
-    <footer class="muted">
-      <p id="version">Versión de página: v3</p>
-    </footer>
   </body>
 </html>
