@@ -1,56 +1,14 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>suma_lista - Railway</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 20px;
-        background: #f7f7f7;
-        color: #222;
-      }
-      .card {
-        background: white;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        margin-bottom: 20px;
-      }
-      code {
-        background: #eee;
-        padding: 2px 6px;
-        border-radius: 6px;
-      }
-      .estado {
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <h1>Proyecto suma_lista en Railway</h1>
-      <p>Esta página está desplegada en Railway.</p>
-      <p><span class="estado">Versión actual:</span> v3</p>
-    </div>
+from flask import Flask, render_template_string
+from suma_lista import suma_lista
 
-    <div class="card">
-      <h2>Prueba de la función</h2>
-      <p>Lista de ejemplo: <code>Funciona por favor andale</code></p>
-      <p>Resultado de suma_lista: <code>Memes</code></p>
-    </div>
+app = Flask(__name__)
 
-    <div class="card">
-      <h2>Demostración CI/CD</h2>
-      <p>En esta actividad se demostrará:</p>
-      <ol>
-        <li>Romper un test para poner el pipeline en rojo.</li>
-        <li>Modificar esta página y hacer push.</li>
-        <li>Corregir el test para volver el pipeline a verde.</li>
-      </ol>
-    </div>
-  </body>
-</html>
+with open("index.html", "r", encoding="utf-8") as archivo:
+    plantilla = archivo.read()
+
+
+@app.route("/")
+def inicio():
+    lista = [1, 2, 3]
+    resultado = suma_lista(lista)
+    return render_template_string(plantilla, lista=lista, resultado=resultado)
