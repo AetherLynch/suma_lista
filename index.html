@@ -1,14 +1,41 @@
-from flask import Flask, render_template_string
-from suma_lista import suma_lista
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>suma_lista Docker Deploy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Proyecto suma_lista con Docker</h1>
+        <p>Versión: v1</p>
+    </div>
 
-app = Flask(__name__)
+    <div class="card">
+        <h2>Prueba de la función</h2>
+        <p>Lista: {{ lista }}</p>
+        <p>Resultado: {{ resultado }}</p>
+    </div>
 
-with open("index.html", "r", encoding="utf-8") as archivo:
-    plantilla = archivo.read()
-
-
-@app.route("/")
-def inicio():
-    lista = [1, 2, 3]
-    resultado = suma_lista(lista)
-    return render_template_string(plantilla, lista=lista, resultado=resultado)
+    <div class="card">
+        <h2>Demostración de CI/CD</h2>
+        <p>Esta página está desplegada con Docker directamente desde Railway.</p>
+    </div>
+</body>
+</html>
